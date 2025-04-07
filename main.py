@@ -86,8 +86,8 @@ def input_thread():
                         robot_pos[1] = value
                     elif modifier == "dis":
                         value *= IN_TO_PX
-                        robot_pos[0] += value * math.sin(robot_angle)
-                        robot_pos[1] += value * -math.cos(robot_angle)
+                        robot_pos[0] += value * math.sin(math.radians(robot_angle))
+                        robot_pos[1] += value * -math.cos(math.radians(robot_angle))
                     else:
                         print("Invalid modifier")
 
