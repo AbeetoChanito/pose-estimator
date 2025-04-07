@@ -67,7 +67,7 @@ def input_thread():
                 break
             parts = user_input.strip().split()
             if len(parts) != 3 and len(parts) != 2:
-                print("Invalid input, use format: x y theta")
+                print("Invalid input")
                 continue
 
             if len(parts) == 2:
@@ -84,8 +84,12 @@ def input_thread():
                         value *= IN_TO_PX * -1
                         value += WINDOW_SIZE / 2
                         robot_pos[1] = value
+                    elif modifier == "dis":
+                        value *= IN_TO_PX
+                        robot_pos[0] += value * math.sin(robot_angle)
+                        robot_pos[1] += value * -math.cos(robot_angle)
                     else:
-                        print("Invalid modifier, use format: modifier value")
+                        print("Invalid modifier")
 
 
             if len(parts) == 3:
